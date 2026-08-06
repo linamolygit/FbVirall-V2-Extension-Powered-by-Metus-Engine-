@@ -1,0 +1,51 @@
+{
+  "description": "FbVirall V2 Extension (Powered by Metus Engine)",
+  "version": "1.3",
+  "name": "FbVirall V2 Extension",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "bg.js"
+  },
+  "action": {},
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost:3000/*",
+        "https://fbvirall.vercel.app/*",
+        "https://*.metus.vn/*",
+        "https://metus.netlify.app/*"
+      ],
+      "js": ["content.js"],
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "declarativeNetRequestFeedback",
+    "declarativeNetRequest",
+    "cookies",
+    "tabs",
+    "scripting",
+    "storage",
+    "debugger",
+    "alarms"
+  ],
+  "host_permissions": [
+    "*://*.facebook.com/*",
+    "*://*.google.com/*",
+    "*://*.tiktok.com/*",
+    "https://fbvirall.vercel.app/*",
+    "http://localhost:3000/*",
+    "*://*/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icon.png", "manifest.json", "bg.js", "content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

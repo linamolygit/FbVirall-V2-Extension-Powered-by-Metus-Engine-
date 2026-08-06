@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 280px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1117;
+      color: #ffffff;
+      padding: 16px;
+      margin: 0;
+    }
+    .card {
+      background: #1a1d2e;
+      border: 1px solid #2d3250;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    h3 {
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+      color: #1877f2;
+    }
+    p {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-bottom: 14px;
+    }
+    button {
+      width: 100%;
+      background: linear-gradient(135deg, #1877f2, #1565c0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    #status {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .success { color: #22c55e; }
+    .error { color: #ef4444; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h3>FbVirall Auto-Connect</h3>
+    <p>Extract Facebook session cookie and auto-sync with your SaaS account.</p>
+    <button id="syncBtn">⚡ Sync FB Account Now</button>
+    <div id="status"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
