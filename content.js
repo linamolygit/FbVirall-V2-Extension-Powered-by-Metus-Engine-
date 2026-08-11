@@ -1,8 +1,5 @@
-// content.js - LinkPika
+console.log("[LinkPika] Extension content script loaded");
 
-console.log("[LinkPika Extension] loaded");
-
-// Tell frontend extension is ready
 window.postMessage({ type: "FBVIRALL_EXTENSION_INSTALLED" }, "*");
 
 window.addEventListener("message", async (event) => {
@@ -18,10 +15,7 @@ window.addEventListener("message", async (event) => {
       const res = await chrome.runtime.sendMessage({ type: "GET_COOKIE" });
       window.postMessage({
         type: "FBVIRALL_EXTENSION_RESPONSE",
-        data: {
-          cookieString: res.cookie || "",
-          accessToken: null // backend resolve karega
-        },
+        data: { cookieString: res?.cookie || "" },
         requestId: data.requestId
       }, "*");
     } catch (err) {
@@ -33,7 +27,6 @@ window.addEventListener("message", async (event) => {
     }
   }
 
-  // Advanced: frontend se direct EX_FETCH
   if (data.type === "EX_FETCH") {
     chrome.runtime.sendMessage(data, (response) => {
       window.postMessage({
@@ -41,7 +34,8 @@ window.addEventListener("message", async (event) => {
         requestId: data.requestId,
         data: response?.data,
         error: response?.error,
-        status: response?.status
+        status: response?.status,
+        ok: response?.ok
       }, "*");
     });
   }
