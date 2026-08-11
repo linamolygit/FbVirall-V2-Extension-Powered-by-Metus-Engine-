@@ -1,23 +1,22 @@
 {
   "manifest_version": 3,
   "name": "LinkPika One Card Helper",
-  "version": "1.0.0",
-  "description": "Facebook session + header helper for One Card posting",
+  "version": "1.1.0",
+  "description": "Facebook session + header helper for One Card / Dark Post",
   "permissions": [
     "cookies",
     "tabs",
     "scripting",
     "storage",
-    "declarativeNetRequest",
-    "declarativeNetRequestFeedback"
+    "declarativeNetRequest"
   ],
   "host_permissions": [
     "*://*.facebook.com/*",
     "*://*.fb.com/*",
+    "*://graph.facebook.com/*",
     "*://fbvirall.vercel.app/*",
     "*://*.vercel.app/*",
-    "http://localhost:3000/*",
-    "*://*/*"
+    "http://localhost:3000/*"
   ],
   "background": {
     "service_worker": "bg.js"
@@ -36,10 +35,5 @@
   ],
   "action": {
     "default_title": "LinkPika Extension"
-  },
-  "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
   }
 }
